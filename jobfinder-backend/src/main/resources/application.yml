@@ -1,0 +1,17 @@
+lombok:
+  anyConstructor:
+    addConstructorProperties: true
+
+spring:
+  application:
+    name: @project.artifactId@
+  datasource:
+    url: ${jobfinder.database.url}
+    username: ${jobfinder.database.username}
+    password: ${jobfinder.database.password}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:/changelogs/changelog.xml
+    enabled: true
+  jooq:
+    sql-dialect: Postgres

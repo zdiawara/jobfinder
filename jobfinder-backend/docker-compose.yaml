@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    container_name: d_jobfinder
+    ports:
+    - "5431:5432"
+    environment:
+      POSTGRES_PASSWORD: p_jobfinder
+      POSTGRES_USER: u_jobfinder
+      POSTGRES_DB: d_jobfinder

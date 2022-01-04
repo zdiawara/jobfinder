@@ -1,0 +1,5 @@
+jobfinder:
+  database:
+    url: jdbc:postgresql://localhost:5431/d_jobfinder
+    username: u_jobfinder
+    password: p_jobfinder
