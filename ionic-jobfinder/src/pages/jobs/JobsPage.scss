@@ -1,0 +1,176 @@
+ion-content {
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --background: #fafafa;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1rem 0;
+
+    .title,
+    .subtitle {
+      margin: 0;
+      font-weight: 700;
+    }
+    .title {
+      font-size: 2rem;
+      color: var(--ion-color-primary);
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      color: var(--ion-color-dark);
+    }
+    .avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: var(--ion-color-primary);
+
+      img {
+        height: 85%;
+        width: 85%;
+      }
+    }
+  }
+
+  ion-searchbar {
+    &.search {
+      --box-shadow: none;
+      --background: #fff;
+      --border-radius: 1.5rem;
+      --placeholder-font-weight: 600;
+      --padding-start: 0rem;
+      padding-left: 0;
+      padding-right: 0;
+
+      .searchbar-input-container {
+        input {
+          padding-top: 0.85rem;
+          padding-bottom: 0.85rem;
+          font-size: 1.2rem;
+          font-weight: 500;
+          border: 2px solid var(--ion-color-light);
+        }
+        .searchbar-search-icon {
+          top: 1rem;
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .categories {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    // grid-template-columns: repeat(4, 1fr);
+    // grid-gap: 1rem;
+    width: 100%;
+    .categorie {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0.75rem 0.75rem;
+      margin-right: 0.5rem;
+      //   border: 0.5px solid var(--ion-color-medium);
+      background-color: #f3f3f3;
+      border-radius: 0.75rem;
+
+      .title {
+        // color: var(--ion-color-medium);
+        font-weight: 500;
+        font-size: 0.9rem;
+        // letter-spacing: 1px;
+      }
+
+      &.active {
+        background-color: var(--ion-color-primary);
+        .title {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.jobs {
+  margin-top: 2rem;
+}
+
+.job {
+  background-color: #fff;
+  color: #a0a2ab;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.04);
+  .job-header {
+    display: flex;
+    align-items: center;
+
+    .title-wrapper {
+      margin-right: 0.5rem;
+    }
+    .job-subtitle {
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    .job-title {
+      margin: 0.35rem 0 0 0;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--ion-color-dark);
+    }
+    .job-media {
+      flex: none;
+      position: relative;
+      height: 60px;
+      width: 60px;
+      margin-right: 1rem;
+      border-radius: 1rem;
+      //   background-color: rgba(red, 0.05);
+      img {
+        // height: 70%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    ion-icon {
+      margin-left: auto;
+      font-size: 1.5rem;
+      //   background-color: var(--ion-color-primary);
+    }
+  }
+
+  .job-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    .job-location {
+      font-size: 0.85rem;
+      ion-icon {
+        margin-right: 0.25rem;
+      }
+    }
+    .job-salaire--wrapper {
+      margin-left: auto;
+      .job-salaire {
+        font-weight: 600;
+        color: var(--ion-color-dark);
+      }
+    }
+  }
+}

@@ -2,6 +2,8 @@
 
 ## Base de données
 
+Postgres
+
 ### Liquibase
 
 Mise en place de liquibase

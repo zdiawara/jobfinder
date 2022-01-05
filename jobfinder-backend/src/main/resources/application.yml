@@ -15,3 +15,6 @@ spring:
     enabled: true
   jooq:
     sql-dialect: Postgres
+logging:
+  level:
+    org.jooq: DEBUG

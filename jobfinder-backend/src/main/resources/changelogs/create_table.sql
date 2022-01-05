@@ -1,14 +1,22 @@
 -- liquibase formatted sql
 -- changeset zakaridia:create_table
 
+CREATE TYPE EtatDemande AS ENUM ('sended','received','accepted','refused');
+CREATE TYPE UserRole as ENUM('USER', 'ADMIN');
+
 CREATE TABLE utilisateur(
     id                UUID DEFAULT gen_random_uuid() NOT NULL,
-    nom               VARCHAR(256),
-    prenom            VARCHAR(256),
+    nom               VARCHAR(256)  NOT NULL,
+    prenom            VARCHAR(256)  NOT NULL,
+    email             VARCHAR(50)   NOT NULL,
+    password          VARCHAR(256)  NOT NULL,
+    roles             UserRole[]    NOT NULL,
     date_creation     TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
     date_modification TIMESTAMP WITH TIME ZONE,
 
-    CONSTRAINT "utilisateur_pk" PRIMARY KEY ("id")
+    CONSTRAINT "utilisateur_pk" PRIMARY KEY ("id"),
+    CONSTRAINT "unique_user_email" UNIQUE ("email"),
+    CONSTRAINT "role_is_required" CHECK (array_length(roles, 1) > 0)
 );
 
 CREATE TABLE entreprise(
@@ -28,11 +36,11 @@ CREATE TABLE categorie(
 CREATE TABLE job(
     id                UUID DEFAULT gen_random_uuid() NOT NULL,
     titre             VARCHAR(256) NOT NULL,
-    salaire_min       INT NOT NULL,
-    salaire_max       INT,
-    lieu              VARCHAR(30) NOT NULL,
     description       TEXT NOT NULL,
     competence        TEXT,
+    lieu              VARCHAR(30) NOT NULL,
+    salaire_min       INT NOT NULL,
+    salaire_max       INT,
     id_entreprise     UUID NOT NULL,
     id_categorie      UUID NOT NULL,
     date_creation     TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
@@ -46,8 +54,6 @@ CREATE TABLE job(
     CONSTRAINT "categorie_fk" FOREIGN KEY ("id_categorie")
         REFERENCES categorie ("id")
 );
-
-CREATE TYPE EtatDemande AS ENUM ('sended','received','accepted','refused');
 
 CREATE TABLE demande(
     id_utilisateur    UUID NOT NULL,

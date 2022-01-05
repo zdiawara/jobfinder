@@ -1,3 +1,5 @@
+server:
+  port: 4100
 jobfinder:
   database:
     url: jdbc:postgresql://localhost:5431/d_jobfinder
